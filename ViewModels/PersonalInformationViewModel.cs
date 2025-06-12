@@ -25,7 +25,7 @@ namespace MaForme.ViewModels
         public PersonalInformationViewModel()
         {
             Person = LocalStorageService.Load();
-            SubmitCommand = new RelayCommand(SavePersonalInfo);
+            SubmitCommand = new RelayCommand(_ => SavePersonalInfo());
         }
 
         private void SavePersonalInfo()

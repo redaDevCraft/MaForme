@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using MaForme.Views;
 
 namespace MaForme
 {
@@ -8,27 +9,27 @@ namespace MaForme
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Views.DashboardView()); // Default view
+            MainFrame.Navigate(new DashboardView()); // Default view
+            PageTitle.Text = "Dashboard";
         }
 
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Views.DashboardView());
+            MainFrame.Navigate(new DashboardView());
             PageTitle.Text = "Dashboard";
         }
 
         private void TemplatesButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Views.TemplatesView());
+            // Navigate to TemplateSelector instead of old TemplatesView
+            MainFrame.Navigate(new TemplateSelector());
             PageTitle.Text = "Templates";
         }
 
         private void SavedFormsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Views.SavedFormsView());
+            MainFrame.Navigate(new SavedFormsView());
             PageTitle.Text = "Saved Forms";
         }
-
-      
     }
 }

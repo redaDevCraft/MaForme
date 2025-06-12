@@ -24,9 +24,12 @@ namespace MaForme.ViewModels
 
         public MainWindowViewModel()
         {
-            ShowDashboardCommand = new RelayCommand(() => CurrentView = new Views.DashboardView(), () => true);
-            ShowTemplatesCommand = new RelayCommand(() => CurrentView = new Views.TemplatesView(), () => true);
-            ShowSavedFormsCommand = new RelayCommand(() => CurrentView = new Views.SavedFormsView(), () => true);
+            ShowDashboardCommand = new RelayCommand(parameter => CurrentView = new Views.DashboardView(), parameter => true);
+            ShowTemplatesCommand = new RelayCommand(
+                parameter => CurrentView = new Views.TemplatesView(),
+                parameter => true
+            );
+            ShowSavedFormsCommand = new RelayCommand(parameter => CurrentView = new Views.SavedFormsView(), parameter => true);
 
             // Default view
             CurrentView = new Views.DashboardView();
