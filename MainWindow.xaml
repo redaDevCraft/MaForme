@@ -1,0 +1,88 @@
+﻿<Window x:Class="MaForme.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MaForme Dashboard" Height="700" Width="1100"
+        Background="{DynamicResource MaterialDesign.Brush.Background}">
+
+    <DockPanel>
+
+        <!-- Sidebar Navigation -->
+        <StackPanel DockPanel.Dock="Left" Width="250" Background="{DynamicResource MaterialDesign.Brush.Primary.Foreground}">
+            <TextBlock Text="MaForme"
+                       FontSize="28" FontWeight="Bold" Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}" Margin="20"/>
+
+            <!-- Sidebar Buttons -->
+            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="10" Padding="10" Background="Transparent"
+                    Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"
+                    HorizontalContentAlignment="Left"
+                    Click="DashboardButton_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="ViewDashboard" Width="28" Height="28" Margin="0,0,15,0"
+                                             Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+                    <TextBlock Text="Dashboard" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="10" Padding="10" Background="Transparent"
+                    Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"
+                    HorizontalContentAlignment="Left"
+                    Click="TemplatesButton_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="FileDocumentOutline" Width="28" Height="28" Margin="0,0,15,0"
+                                             Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+                    <TextBlock Text="Templates" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="10" Padding="10" Background="Transparent"
+                    Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"
+                    HorizontalContentAlignment="Left"
+                    Click="SavedFormsButton_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="ContentSaveOutline" Width="28" Height="28" Margin="0,0,15,0"
+                                             Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+                    <TextBlock Text="Saved Forms" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+           
+
+            <StackPanel VerticalAlignment="Bottom" Margin="15">
+                <Separator Margin="0,20,0,10" Background="{DynamicResource MaterialDesign.Brush.OnPrimary}" Opacity="0.3"/>
+                <TextBlock Text="Version 1.0" Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}" Opacity="0.6" FontSize="13"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Main Content Area with Navigation Frame -->
+        <DockPanel>
+
+            <!-- Top Bar -->
+            <Grid DockPanel.Dock="Top" Height="60" Background="{DynamicResource MaterialDesign.Brush.Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="PageTitle" Text="Dashboard" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="20"
+                           Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1" Margin="0,0,20,0">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,15,0">
+                        <materialDesign:PackIcon Kind="BellOutline" Width="24" Height="24" Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}">
+                        <materialDesign:PackIcon Kind="AccountCircleOutline" Width="32" Height="32" Foreground="{DynamicResource MaterialDesign.Brush.OnPrimary}"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Navigation Frame (Displays Pages) -->
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+
+        </DockPanel>
+    </DockPanel>
+</Window>

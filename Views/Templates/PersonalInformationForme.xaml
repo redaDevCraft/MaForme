@@ -1,0 +1,67 @@
+﻿<Page x:Class="MaForme.Views.Templates.PersonalInformationForme"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="PersonalInformationForme">
+
+    <ScrollViewer Background="#f0f0f0">
+        <!-- Light background outside paper -->
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+            <Border Background="White" Width="800" Height="1131" Padding="40" CornerRadius="4" 
+                    BorderBrush="#ccc" BorderThickness="1">
+                <!-- ~A4 in px -->
+                <StackPanel>
+
+                    <!-- Company Header -->
+                    <TextBlock Text="Company Name" FontSize="28" FontWeight="Bold" 
+                               TextAlignment="Center" Margin="0 0 0 20"/>
+                    <TextBlock Text="Personal Information Form" FontSize="20" 
+                               FontWeight="SemiBold" TextAlignment="Center" Margin="0 0 0 40"/>
+
+                    <!-- Personal Information Section -->
+                    <StackPanel Margin="0 0 0 20">
+                        <TextBlock Text="Full Name:" FontWeight="Bold"/>
+                        <TextBox Name="FullNameTextBox" Text="{Binding Person.FullName, UpdateSourceTrigger=PropertyChanged}" 
+                                 Margin="0 0 0 15"/>
+
+                        <TextBlock Name="EmailTextBox" Text="Email:" FontWeight="Bold"/>
+                        <TextBox Text="{Binding Person.Email, UpdateSourceTrigger=PropertyChanged}" 
+                                 Margin="0 0 0 15"/>
+
+                        <TextBlock Name="PhoneTextBox" Text="Phone Number:" FontWeight="Bold"/>
+                        <TextBox Text="{Binding Person.Phone, UpdateSourceTrigger=PropertyChanged}" 
+                                 Margin="0 0 0 30"/>
+                    </StackPanel>
+
+                    <!-- Static text, terms, or declaration -->
+                    <TextBlock Text="By signing below, I confirm that the above information is correct."
+                               TextWrapping="Wrap" Margin="0 0 0 40"/>
+
+                    <!-- Signature Section -->
+                    <Grid Margin="0 0 0 30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Signature:" Grid.Column="0" VerticalAlignment="Center"/>
+                        <Border BorderBrush="#999" BorderThickness="1" Height="50" Grid.Column="1" Margin="10 0 0 0"/>
+                    </Grid>
+
+                    <!-- Footer: Date or static -->
+                    <TextBlock Text="Date: ____________" Margin="0 0 0 10"/>
+                    <TextBlock Text="Company Footer or Address" FontSize="12" 
+                               Foreground="#888" TextAlignment="Center" Margin="0 40 0 0"/>
+
+                </StackPanel>
+            </Border>
+
+            <!-- Buttons floating outside the paper if needed -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                        Margin="0 20 0 0">
+                <Button Content="Export to PDF" Margin="10" Click="ExportToPdf_Click"/>
+                <Button Content="Clear" Command="{Binding ClearCommand}" Margin="10"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
